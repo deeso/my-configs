@@ -25,22 +25,27 @@ rm -rf tmp-syslog-etl
 
 
 # python script variables
-
-MONGO_HOST="''"
+# ****** Important to update the files with the appropriate parameters!!
+MONGO_HOST="docker-secx"
 MONGO_PORT=27017
 
 SYSLOG_LISTEN_PORT=$EXPOSED_SYSLOG_PORT
 
-ETL_HOST="''"
+ETL_HOST="docker-secx"
 ETL_PORT=5002
 
 # contains hardcoded host names -> IP address
 KNOWN_HOSTS="hosts.txt"
 
+# TODO uncomment below if you want to save to Mongo
+#echo "python main.py -msave -mhost $MONGO_HOST -mport $MONGO_PORT \
+#      -sport $SYSLOG_LISTEN_PORT -known_hosts hosts.txt \
+#      -lhost $ETL_HOST -lport $ETL_PORT" > python_cmd.sh
 
+# TODO comment below if you want to save to Mongo
 echo "python main.py -mhost $MONGO_HOST -mport $MONGO_PORT \
-      -sport $SYSLOG_LISTEN_PORT -known_hosts hosts.txt -lhost \
-      $ETL_HOST -lport $ETL_PORT" > python_cmd.sh
+      -sport $SYSLOG_LISTEN_PORT -known_hosts hosts.txt \
+      -lhost $ETL_HOST -lport $ETL_PORT" > python_cmd.sh
 
 cat python_cmd.sh
 
