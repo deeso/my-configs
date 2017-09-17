@@ -9,5 +9,5 @@ RUN pip install git+https://github.com/deeso/syslog-etl.git
 CMD [ "sh", "python_cmd.sh" ]
 
 # these may need to be updated if the run-file.sh is changed
-EXPOSE 27017 5000 5002
+EXPOSE 5000
 
