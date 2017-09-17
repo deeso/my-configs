@@ -9,7 +9,7 @@ filter {
 }
 output {
   elasticsearch { hosts => ["0.0.0.0:9200"] }
-  #file {
-  #  path => '/var/log/logstash/json-output-etl.log'
-  #}
+  file {
+    path => '/var/log/logstash/json-output-etl.log'
+  }
 }
