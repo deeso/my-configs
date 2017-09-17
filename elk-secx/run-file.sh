@@ -1,4 +1,4 @@
-DOCKER_TAG=elkdocker_elk:latest
+DOCKER_TAG=elkdocker:latest
 DOCKER_NAME=elk-secx
 
 # setup dirs
@@ -18,6 +18,7 @@ sudo mkdir -p $DOCKER_DATA
 sudo mkdir -p $DOCKER_LOGS
 sudo chmod -R a+rw $DOCKER_NB
 
+docker build -t $DOCKER_TAG .
 # run command not 
 echo "docker run $DOCKER_PORTS $DOCKER_VOL -it  $DOCKER_ENV \
            --name $DOCKER_NAME $DOCKER_TAG"

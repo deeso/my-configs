@@ -1,4 +1,4 @@
-from elk-docker:latest
+from sebp/elk:latest
 
 # if debugging uncomment next two commands
 #ADD ./logstash-init-debug /etc/init.d/logstash
