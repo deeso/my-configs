@@ -35,6 +35,9 @@ ETL_HOST="docker-secx"
 ETL_PORT=5002
 
 # contains hardcoded host names -> IP address
+# this needs to have the following:
+#
+# SYSLOGSERVER_IP SYSLOGSERVER_NAME
 KNOWN_HOSTS="hosts.txt"
 
 # TODO uncomment below if you want to save to Mongo
@@ -56,7 +59,7 @@ docker build --no-cache -t $DOCKER_TAG .
 rm python_cmd.sh main.py
 
 # run command not 
-echo "docker run $DOCKER_PORTS $DOCKER_VOL -it  $DOCKER_ENV \
+echo "docker run $DOCKER_PORTS $DOCKER_VOL -it $DOCKER_ENV \
            --name $DOCKER_NAME $DOCKER_TAG"
-#docker run $DOCKER_PORTS $DOCKER_VOL -it  $DOCKER_ENV \
-#           --name $DOCKER_NAME $DOCKER_TAG
+docker run $DOCKER_PORTS $DOCKER_VOL -it $DOCKER_ENV \
+           --name $DOCKER_NAME $DOCKER_TAG
