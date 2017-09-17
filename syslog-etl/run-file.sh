@@ -38,7 +38,7 @@ ETL_PORT=5002
 # this needs to have the following:
 #
 # SYSLOGSERVER_IP SYSLOGSERVER_NAME
-KNOWN_HOSTS="hosts.txt"
+KNOWN_HOSTS="/research_data/myhosts.txt"
 
 # TODO uncomment below if you want to save to Mongo
 #echo "python main.py -msave -mhost $MONGO_HOST -mport $MONGO_PORT \
