@@ -1,6 +1,9 @@
 DOCKER_TAG=mongo:latest
 DOCKER_NAME=mongo-secx
 
+# cleaup Docker
+docker rm $DOCKER_NAME
+
 # setup dirs
 DOCKER_BASE=/data
 DOCKER_NB=$DOCKER_BASE/$DOCKER_NAME

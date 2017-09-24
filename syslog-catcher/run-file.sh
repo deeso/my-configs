@@ -1,6 +1,9 @@
 DOCKER_TAG=python27:latest
 DOCKER_NAME=syslog-etl
 
+# cleaup Docker
+docker rm $DOCKER_NAME
+
 # setup dirs
 DOCKER_BASE=/data
 DOCKER_NB=$DOCKER_BASE/$DOCKER_NAME

@@ -1,6 +1,9 @@
 DOCKER_TAG=redis:latest
 DOCKER_NAME=redis-misc
 
+# cleaup Docker
+docker rm $DOCKER_NAME
+
 # setup dirs 
 DOCKER_BASE=/data
 DOCKER_NB=$DOCKER_BASE/$DOCKER_NAME
