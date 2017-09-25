@@ -11,7 +11,7 @@ DOCKER_LOGS=$DOCKER_NB/logs
 DOCKER_DATA=$DOCKER_NB/data
 
 DOCKER_PORTS=""
-DOCKER_ENV=""
+DOCKER_ENV=" -e CATCHER_TZ=America/Chicago"
 DOCKER_VOL=""
 
 sudo mkdir -p $DOCKER_DATA
@@ -23,6 +23,7 @@ git clone https://github.com/deeso/slow-hitter.git tmp-slow-hitter
 cp tmp-slow-hitter/main.py .
 rm -rf tmp-slow-hitter
 
+cp myhosts.txt the_hosts.txt
 
 # python script variables
 # ****** Important to update the files with the appropriate parameters!!
@@ -32,7 +33,7 @@ BROKER_QUEUE="mystified-catcher"
 LS_BROKER_URI="redis://docker-secx:6379"
 LS_BROKER_QUEUE="logstash-ingest"
 
-NAME="tc-catcher"
+NAME="tc-hitter"
 
 MONGO_HOST="docker-secx"
 MONGO_PORT=27017
@@ -46,7 +47,7 @@ MSG_LIMIT=100
 # this needs to have the following:
 #
 # SYSLOGSERVER_IP SYSLOGSERVER_NAME
-KNOWN_HOSTS="./myhosts.txt"
+KNOWN_HOSTS="hosts.txt"
 
 # TODO uncomment below if you want to save to Mongo
 #echo "python main.py -msave -mhost $MONGO_HOST -mport $MONGO_PORT \
@@ -66,7 +67,7 @@ cat python_cmd.sh
 docker build --no-cache -t $DOCKER_TAG .
 
 # clean up here
-rm python_cmd.sh main.py
+rm python_cmd.sh main.py the_hosts.txt
 
 # run command not 
 echo "docker run $DOCKER_PORTS $DOCKER_VOL -it $DOCKER_ENV \
