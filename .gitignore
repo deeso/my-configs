@@ -1,2 +1,6 @@
 *.swp
 python-syslog/hosts.txt
+*.passwd
+*.key
+*.keys
+*.priv
