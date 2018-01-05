@@ -1,2 +1,2 @@
-from 35_mongo:latest
+from mongo:latest
 
